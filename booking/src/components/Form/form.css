@@ -1,0 +1,16 @@
+.form {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.form__date {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+@media (max-width: 768px) {
+  .form__date {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,25 @@
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.header__title {
+  margin: 0;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+@media (prefers-color-scheme: light) {
+  .header__title {
+    color: #000000;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .header__title {
+    color: #FFF;
+  }
+}
+
