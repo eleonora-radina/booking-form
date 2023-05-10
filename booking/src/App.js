@@ -1,6 +1,7 @@
 import sanitizeHtml from 'sanitize-html';
 import { React, useState, useEffect } from 'react';
-import { AppRoot } from '@vkontakte/vkui';
+import { AppRoot, Snackbar } from '@vkontakte/vkui';
+import { Icon28CheckCircleOutline } from '@vkontakte/icons';
 import '@vkontakte/vkui/dist/vkui.css';
 import Header from './components/Header/Header.js'
 import Form from './components/Form/Form.js'
@@ -29,6 +30,9 @@ const App = () => {
 
   const [comment, setComment] = useState("");
   const [isSuccess, setIsSuccess] = useState(true);
+
+  const [text, setText] = useState('');
+  const [snackbar, setSnackbar] = useState(null);
 
   useEffect(() => {
     setTowers(api.getTowers());
@@ -74,6 +78,18 @@ const App = () => {
       ? setIsButtonSubmitDisabled(false)
       : setIsButtonSubmitDisabled(true);
   }, [selectedDate, selectedEndTime, selectedFloor, selectedRoomId, selectedStartTime, selectedTowerId])
+
+  const openSuccess = () => {
+    if (snackbar) return;
+    setSnackbar(
+      <Snackbar
+        onClose={() => setSnackbar(null)}
+        before={<Icon28CheckCircleOutline fill="var(--vkui--color_icon_positive)" />}
+      >
+        Бронирование отправлено!
+      </Snackbar>,
+    );
+  };
 
   const onTowerSelect = (e) => {
     setSelectedTowerId(parseInt(e.target.value));
@@ -124,7 +140,7 @@ const App = () => {
 
     if (api.addBooking(booking)) {
       console.log(JSON.stringify(booking, null, 4));
-      console.log('Отправлено!');
+      openSuccess();
       setIsSuccess(true);
     } else {
       setIsSuccess(false);
@@ -180,6 +196,7 @@ const App = () => {
         isSuccess={isSuccess}
       />
 
+    {snackbar}
     </AppRoot>
   );
 };
