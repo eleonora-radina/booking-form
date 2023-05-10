@@ -10,6 +10,9 @@
 
 Все поля, кроме поля "Комментарий", обязательны к заполнению.
 
+---
+
+[Ссылка на проект](https://eleonora-radina.github.io/booking-form/)
 
 ---
 
@@ -33,10 +36,6 @@
 
 ---
 
-[Ссылка на проект](https://eleonora-radina.github.io/booking-form/)
-
----
-
 ## Инструкция по запуску:
 
 Проект можно запустить локально или посмотреть [здесь](https://eleonora-radina.github.io/booking-form/).
@@ -48,4 +47,5 @@
 
 ---
 
+В приложении используются React компоненты из библиотеки [VKUI](https://github.com/VKCOM/VKUI)
 
